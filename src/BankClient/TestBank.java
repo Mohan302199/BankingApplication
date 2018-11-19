@@ -27,10 +27,13 @@ public class TestBank {
 //            account1.display();
             account.deposit(200);
             account.deposit(300);
-            account.withdraw(500
-            );
+            account.withdraw(500);
+
+            ((SavingsAccount) account).hi();
+            ((SavingsAccount) account).hii("Welcome");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
     }
 }

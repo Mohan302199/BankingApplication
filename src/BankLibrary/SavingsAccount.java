@@ -1,6 +1,6 @@
 package BankLibrary;
 
-public class SavingsAccount extends Account {
+public class SavingsAccount extends Account implements ITest {
     private int minimumBalance;
 
     public SavingsAccount(String customerName, String customerAddress, String customerMobileNumber, String customerAadharnumber, long currentBalance, String customerPANNumber, int minimumBalance) throws NegativeException, MinBalException {
@@ -24,4 +24,13 @@ public class SavingsAccount extends Account {
     }
 
 
+    @Override
+    public void hi() {
+        System.out.println("HI Called");
+    }
+
+    @Override
+    public void hii(String msg) {
+        System.out.println(msg);
+    }
 }
