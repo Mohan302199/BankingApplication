@@ -13,13 +13,17 @@ public abstract class Account {
         this.customerId=count++;
     }
 
-    public Account(String customerName, String customerAddress, String customerMobileNumber, String customerAadharnumber, long currentBalance,String customerPANNumber) {
+    public Account(String customerName, String customerAddress, String customerMobileNumber, String customerAadharnumber, long currentBalance, String customerPANNumber) throws NegativeException {
         this();
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerMobileNumber = customerMobileNumber;
         this.customerAadharnumber = customerAadharnumber;
-        this.currentBalance = currentBalance;
+        if (currentBalance < 0) {
+            throw new NegativeException("Account Balance canot be negative");
+        } else {
+            this.currentBalance = currentBalance;
+        }
         this.customerPANNumber =customerPANNumber;
     }
 
@@ -93,7 +97,7 @@ public abstract class Account {
         );
     }
 
-    public void withdraw(int withDrawAmount){
+    public void withdraw(int withDrawAmount) throws InSufficientBalnce {
         if(this.currentBalance>withDrawAmount){
             this.currentBalance-=withDrawAmount;
             System.out.println("Dear Customer, A withdraw of amount "+withDrawAmount+" has been Successfully done and your current balance is "+this.currentBalance);
@@ -102,7 +106,10 @@ public abstract class Account {
             System.out.println("Dear Customer, Your Account Dosent carry Sufficiant balance to do this transaction");
     }
 
-    public void deposit(int depositAmount){
+    public void deposit(int depositAmount) throws NegativeException {
+        if (depositAmount < 0) {
+            throw new NegativeException("Deposit amount cannot be Negative");
+        }
         this.currentBalance+=depositAmount;
         System.out.println("Dear Customer a deposit of amount "+ depositAmount+" has been done and your curent balance is"+this.currentBalance);
     }
