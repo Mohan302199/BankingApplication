@@ -1,6 +1,6 @@
 package BankLibrary;
 
-public abstract class Account {
+public abstract class Account implements ITest {
     private int customerId;
     private String customerName;
     private String customerAddress;
@@ -92,7 +92,8 @@ public abstract class Account {
                         "\nCustomer Contact Number : "+ this.customerMobileNumber+
                         "\nCustomer PAN Number     : "+this.customerPANNumber+
                         "\nCustomer AADHAR Number  : "+this.customerAadharnumber+
-                        "\nCurent Balance          : "+this.currentBalance
+                        "\nCurent Balance          : " + this.currentBalance +
+                        "\n__________________________________________________"
 
         );
     }
