@@ -12,10 +12,10 @@ public class TestBank {
                     "Kodumudi",
                     "9786986611",
                     "567729590807",
-                    501,
+                    2000,
                     "CNZ896586",
                     500);
-            account.display();
+//            account.display();
             Account account1 = new SavingsAccount("Gowtham",
                     "Arachalur",
                     "7413698563",
@@ -23,14 +23,12 @@ public class TestBank {
                     100,
                     "CNZ896586",
                     500);
-            account1.display();
-            account.deposit(200);
-            account.deposit(300);
-            account.withdraw(500);
-            account1.withdraw(100);
+//            account1.display();
 
-            account.hi();
-            account.hii("Welcome");
+            account.fundTransfer(account, account1, 0);
+
+            account.display();
+            account1.display();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

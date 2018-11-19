@@ -1,6 +1,6 @@
 package BankLibrary;
 
-public abstract class Account implements ITest {
+public abstract class Account implements ITest, IFundTransfer {
     private int customerId;
     private String customerName;
     private String customerAddress;
