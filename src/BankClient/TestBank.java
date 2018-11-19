@@ -12,7 +12,7 @@ public class TestBank {
                     "Kodumudi",
                     "9786986611",
                     "567729590807",
-                    0,
+                    501,
                     "CNZ896586",
                     500);
             account.display();

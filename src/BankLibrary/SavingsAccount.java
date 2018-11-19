@@ -11,10 +11,13 @@ public class SavingsAccount extends Account {
         this.minimumBalance = minimumBalance;
     }
 
-    public void withdraw(int withDrawAmount) throws InSufficientBalnce {
+    public void withdraw(int withDrawAmount) throws InSufficientBalnce, NegativeException {
+        if (withDrawAmount < 0) {
+            throw new NegativeException("Withdraw amountcanot be negative");
+        }
         if(super.getCurrentBalance()-minimumBalance>withDrawAmount){
             super.setCurrentBalance(getCurrentBalance()-withDrawAmount);
-            System.out.println("Dear Customer, A withdraw of amount "+withDrawAmount+" has been Successfully done and your current balance is "+this.getCurrentBalance());
+            System.out.println("Dear Customerr, A withdraw of amount " + withDrawAmount + " has been Successfully done and your current balance is " + this.getCurrentBalance());
         }
         else
             throw new InSufficientBalnce("Sory! Your account does not contain the minimum Balance to withdraw");

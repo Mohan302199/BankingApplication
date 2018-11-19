@@ -97,7 +97,7 @@ public abstract class Account {
         );
     }
 
-    public void withdraw(int withDrawAmount) throws InSufficientBalnce {
+    public void withdraw(int withDrawAmount) throws InSufficientBalnce, NegativeException {
         if(this.currentBalance>withDrawAmount){
             this.currentBalance-=withDrawAmount;
             System.out.println("Dear Customer, A withdraw of amount "+withDrawAmount+" has been Successfully done and your current balance is "+this.currentBalance);
