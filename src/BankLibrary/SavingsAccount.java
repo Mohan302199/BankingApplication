@@ -1,6 +1,8 @@
 package BankLibrary;
 
-public class SavingsAccount extends Account implements ITest {
+import java.util.function.IntFunction;
+
+public class SavingsAccount extends Account implements ITest, IFundTransfer {
     private int minimumBalance;
 
     public SavingsAccount(String customerName, String customerAddress, String customerMobileNumber, String customerAadharnumber, long currentBalance, String customerPANNumber, int minimumBalance) throws NegativeException, MinBalException {
@@ -13,7 +15,7 @@ public class SavingsAccount extends Account implements ITest {
 
     public void withdraw(int withDrawAmount) throws InSufficientBalnce, NegativeException {
         if (withDrawAmount < 0) {
-            throw new NegativeException("Withdraw amountcanot be negative");
+            throw new NegativeException("Withdraw amount canot be negative");
         }
         if(super.getCurrentBalance()-minimumBalance>withDrawAmount){
             super.setCurrentBalance(getCurrentBalance()-withDrawAmount);
@@ -32,5 +34,12 @@ public class SavingsAccount extends Account implements ITest {
     @Override
     public void hii(String msg) {
         System.out.println(msg);
+    }
+
+    @Override
+    public void fundTransfer(Account sourceAccount, Account destinationAccount, int amount) throws NegativeException, InSufficientBalnce {
+        sourceAccount.withdraw(amount);
+        destinationAccount.deposit(amount);
+
     }
 }
